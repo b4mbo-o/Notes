@@ -20,6 +20,18 @@ hero: "https://i.ytimg.com/vi/F_QnGXjrxwM/maxresdefault.jpg"
 
 ※ 『（　）』は歌詞と被って打つときにつけてます。
 
+## MV (YouTube)
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; border: 1px solid var(--border);">
+  <iframe
+    src="https://www.youtube.com/embed/F_QnGXjrxwM"
+    title="シャウト・シャトル Official"
+    allowfullscreen
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
+  ></iframe>
+</div>
+<br>
+
 ---
 
 ## イントロ
