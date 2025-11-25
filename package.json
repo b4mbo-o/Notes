@@ -1,14 +1,18 @@
 {
-  "name": "exotic-event",
+  "name": "notes.b4mboo.net",
   "type": "module",
   "version": "0.0.1",
+  "engines": {
+    "node": ">=18.17.0"
+  },
   "scripts": {
-    "dev": "astro dev",
+    "dev": "astro dev --host --port 4321",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.6.0",
     "astro": "^5.16.0"
   }
 }

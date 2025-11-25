@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import PostCard from '../../components/PostCard.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  const tags = new Set<string>();
+  posts.forEach((post) => (post.data.tags || []).forEach((tag) => tags.add(tag)));
+  return ['all', ...tags].map((tag) => ({ params: { tag } }));
+}
+
+const currentTag = Astro.params.tag as string;
+const allPosts = await getCollection('posts');
+const filtered = allPosts
+  .filter((post) => !post.data.draft && !post.data.hidden)
+  .filter((post) => (currentTag === 'all' ? true : (post.data.tags || []).includes(currentTag)))
+  .sort((a, b) => b.data.published.getTime() - a.data.published.getTime());
+
+const tagList = Array.from(new Set(allPosts.flatMap((p) => p.data.tags || []))).sort((a, b) =>
+  a.localeCompare(b)
+);
+const isAll = currentTag === 'all';
+const pageTitle = isAll ? 'All Notes' : `Tag: ${currentTag}`;
+const pageDescription = isAll
+  ? 'すべてのノート一覧'
+  : `${currentTag} に紐づくノート一覧`;
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+  <section class="content-section">
+    <h2 class="section-title">{isAll ? 'All' : 'Tag'}</h2>
+    <div class="card profile-card">
+      <span class="card-label">Filter</span>
+      <h2>{pageTitle}</h2>
+      <p>{pageDescription}（{filtered.length} 件）</p>
+      <div class="hero-meta" style="margin-top: 12px;">
+        <a class="tag-pill" href="/">Home</a>
+        <a class="tag-pill" href="/tags/all">All</a>
+      </div>
+    </div>
+  </section>
+
+  {tagList.length > 0 && (
+    <section class="content-section">
+      <h2 class="section-title">Tags</h2>
+      <div class="toc">
+        {tagList.map((tag) => (
+          <a class={`tag-pill ${tag === currentTag ? 'active' : ''}`} href={`/tags/${tag}/`}>
+            #{tag}
+          </a>
+        ))}
+      </div>
+    </section>
+  )}
+
+  <section class="content-section">
+    <h2 class="section-title">Notes</h2>
+    {filtered.length === 0 ? (
+      <p class="muted">該当するノートがありません。</p>
+    ) : (
+      <>
+        <div class="sort-bar">
+          <button class="sort-btn active" data-sort="latest" data-target="tags-grid">最新</button>
+          <button class="sort-btn" data-sort="popular" data-target="tags-grid">人気</button>
+        </div>
+        <div class="grid-wrapper" id="tags-grid">
+          {filtered.map((post) => (
+            <PostCard post={post} />
+          ))}
+        </div>
+      </>
+    )}
+  </section>
+</BaseLayout>

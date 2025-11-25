@@ -1,0 +1,142 @@
+---
+import type { AstroBuiltinProps } from 'astro';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  lang?: string;
+  ogImage?: string;
+  pageType?: 'page' | 'post';
+  slug?: string;
+  published?: Date;
+  updated?: Date;
+  tags?: string[];
+}
+
+const {
+  title = 'notes.b4mboo.net',
+  description = 'メインサイトの雰囲気をまとったメモ・ブログの置き場。Markdown で追加できます。',
+  lang = 'ja',
+  ogImage = '/images/hero-notes.svg',
+  pageType = 'page',
+  slug,
+  published,
+  updated,
+  tags = [],
+}: Props = Astro.props as Props & AstroBuiltinProps;
+
+const siteTitle = title === 'notes.b4mboo.net' ? title : `${title} | notes.b4mboo.net`;
+const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).toString() : undefined;
+const siteUrl = Astro.site?.toString().replace(/\/$/, '') ?? 'https://notes.b4mboo.net';
+const feedUrl = `${siteUrl}/feed`;
+const ldBase = {
+  '@context': 'https://schema.org',
+  '@type': pageType === 'post' ? 'BlogPosting' : 'WebSite',
+  headline: title,
+  description,
+  inLanguage: lang,
+  url: canonical ?? siteUrl,
+};
+const ldArticle =
+  pageType === 'post'
+    ? {
+        ...ldBase,
+        '@type': 'BlogPosting',
+        datePublished: published?.toISOString(),
+        dateModified: (updated ?? published)?.toISOString(),
+        image: ogImage ? [ogImage] : [],
+        mainEntityOfPage: canonical ?? siteUrl,
+        keywords: tags,
+      }
+    : ldBase;
+---
+
+<!doctype html>
+<html lang={lang} data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    {canonical && <link rel="canonical" href={canonical} />}
+    <title>{siteTitle}</title>
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content={siteTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    {canonical && <meta property="og:url" content={canonical} />}
+    <meta property="og:site_name" content="notes.b4mboo.net" />
+    <meta name="robots" content="index,follow" />
+    <link rel="alternate" type="application/rss+xml" title="notes.b4mboo.net feed" href={feedUrl} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script type="application/ld+json">
+      {JSON.stringify(ldArticle)}
+    </script>
+  </head>
+  <body data-theme="dark" data-page={pageType} data-slug={slug}>
+    <div class="bg-layer"></div>
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="brand">
+          <a href="/" class="brand-mark">notes<span class="dot">.</span>b<span class="accent">4</span>mboo<span class="dot">.</span>net</a>
+          <span class="brand-sub">Notes / Memo</span>
+        </div>
+        <nav class="topnav" data-nav>
+          <a href="/" class="topnav-link">Home</a>
+          <a href="/tags/all" class="topnav-link">Tags</a>
+          <a href="https://b4mboo.net" class="topnav-link" target="_blank" rel="noreferrer">Main</a>
+          <button class="topnav-link" type="button" data-search-toggle aria-label="Search">
+            🔍 Search
+          </button>
+        </nav>
+        <div class="top-actions">
+          <button id="theme-toggle" class="theme-btn" aria-label="Toggle Theme" aria-pressed="false">
+            <svg class="icon sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            <svg class="icon moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+          </button>
+          <button class="nav-toggle" type="button" aria-label="メニュー" data-nav-toggle>
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </header>
+
+      <div class="mobile-nav" data-nav-panel>
+        <a href="/" class="topnav-link">Home</a>
+        <a href="/tags/all" class="topnav-link">Tags</a>
+        <a href="https://b4mboo.net" class="topnav-link" target="_blank" rel="noreferrer">Main</a>
+        <button class="topnav-link" type="button" data-search-toggle aria-label="Search">
+          🔍 Search
+        </button>
+      </div>
+      <div class="nav-overlay" data-nav-overlay></div>
+
+      <main class="content">
+        <slot />
+      </main>
+    </div>
+
+    <div id="search-overlay" class="search-overlay" aria-hidden="true">
+      <div class="search-box">
+        <div class="search-top">
+          <input id="search-input" type="search" placeholder="記事を検索..." autocomplete="off" />
+          <button class="theme-btn" type="button" data-search-close aria-label="Close search">✕</button>
+        </div>
+        <div id="search-results" class="search-results">
+          <p class="muted">キーワードを入力してください</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="/main.js" defer></script>
+  </body>
+</html>

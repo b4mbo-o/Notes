@@ -1,43 +1,40 @@
-# Astro Starter Kit: Minimal
+# notes.b4mboo.net
+
+メインサイトの雰囲気を引き継いだノート / ブログです。Astro + Markdown で、`src/content/posts` にファイルを追加するだけで記事が増えます。
+
+## 開発
 
 ```sh
-npm create astro@latest -- --template minimal
+npm install   # 初回だけ（Node 18.17+ / 推奨 20 系）
+npm run dev   # http://localhost:4321
+npm run build # dist/ に静的ファイルを出力
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+### 検索・人気順について
+- 検索: 右上の Search ボタン or `Ctrl/Cmd + K` で検索モーダル。`posts.json`（ビルド時に生成）を client-side で検索します。
+- 人気順: ブラウザ内での閲覧回数（localStorage）を使って並べ替えます。全ユーザー集計ではないので、正確な PV を取りたい場合は別途バックエンドや計測基盤が必要です。
+- フィード: `/feed`（RSS）を配信。メインサイトの Notes 連携用に `https://notes.b4mboo.net/feed` を参照してください。
 
-## 🚀 Project Structure
+## 記事の追加
 
-Inside of your Astro project, you'll see the following folders and files:
+1. `src/content/posts/` に Markdown を作成（例: `my-note.md`）。
+2. フロントマターを入れる:
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```md
+---
+title: "タイトル"
+description: "一覧に出す短い説明"
+published: "2025-02-21"
+tags: ["tag1", "tag2"]
+hero: "/images/hero-notes.svg" # 任意
+# draft: true   # 下書きにしたい時は true
+---
+
+本文を書きます。
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+`draft: true` を付けるとビルドから除外されます。タグページは `tags/<tag>/` に自動生成されます。
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## デプロイ
 
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+静的サイトなので、GitHub Pages / Cloudflare Pages / Vercel などにそのまま `dist/` を置けば公開できます。

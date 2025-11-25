@@ -1,16 +1,50 @@
 ---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostCard from '../components/PostCard.astro';
 
+const posts = (await getCollection('posts'))
+  .filter((post) => !post.data.draft && !post.data.hidden)
+  .sort((a, b) => b.data.published.getTime() - a.data.published.getTime());
+
+const tags = Array.from(new Set(posts.flatMap((p) => p.data.tags || []))).sort((a, b) => a.localeCompare(b));
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="Notes" description="Blog & Notes">
+  <section id="about" class="content-section">
+    <h2 class="section-title">00_Intro</h2>
+    <div class="card profile-card">
+      <span class="card-label">Notes</span>
+      <h2>Hello, I'm Bamboo.</h2>
+      <p>ばんぶーのブログ的なNoteサイトだよ。なんか個人的に困ったことの解決とか、アイドルのコール表とかゆるぼちで投稿できたらいいなってサイトです。</p>
+      <div class="hero-meta" style="margin-top: 12px;">
+        <span>最新 {posts.length} 件</span>
+        <span>タグ {tags.length} 個</span>
+      </div>
+    </div>
+  </section>
+
+  {tags.length > 0 && (
+    <section id="tags" class="content-section">
+      <h2 class="section-title">01_Tags</h2>
+      <div class="toc">
+        {tags.map((tag) => (
+          <a class="tag-pill" href={`/tags/${tag}/`}>#{tag}</a>
+        ))}
+      </div>
+    </section>
+  )}
+
+  <section id="notes" class="content-section">
+    <h2 class="section-title">02_Notes</h2>
+    <div class="sort-bar">
+      <button class="sort-btn active" data-sort="latest" data-target="notes-grid">最新</button>
+      <button class="sort-btn" data-sort="popular" data-target="notes-grid">人気</button>
+    </div>
+    <div class="grid-wrapper" id="notes-grid">
+      {posts.map((post) => (
+        <PostCard post={post} />
+      ))}
+    </div>
+  </section>
+</BaseLayout>

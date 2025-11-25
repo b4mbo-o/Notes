@@ -1,0 +1,27 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+const { post } = Astro.props as { post: CollectionEntry<'posts'> };
+const dateLabel = post.data.published
+  ? new Date(post.data.published).toLocaleDateString('ja-JP')
+  : '';
+const tags = post.data.tags || [];
+const href = `/posts/${post.slug}/`;
+---
+
+<a class="card link-card note-card" href={href} data-slug={post.slug} data-date={post.data.published.getTime()}>
+  {post.data.hero && <div class="card-hero" style={`background-image: url(${post.data.hero})`}></div>}
+  <div class="card-top">
+    <span class="service-name">{post.data.title}</span>
+    <span class="status-dot"></span>
+  </div>
+  <p class="service-desc">{post.data.description}</p>
+  {tags.length > 0 && (
+    <div class="tags">
+      {tags.map((tag) => (
+        <span class="tag-pill">#{tag}</span>
+      ))}
+    </div>
+  )}
+  <div class="card-footer">🗓 {dateLabel}</div>
+</a>

@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import PostCard from '../../components/PostCard.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  return posts
+    .filter((post) => !post.data.draft)
+    .map((post) => ({
+      params: { slug: post.slug },
+      props: { post },
+    }));
+}
+
+const { post } = Astro.props as { post: CollectionEntry<'posts'> };
+const { Content } = await post.render();
+
+const published = post.data.published.toLocaleDateString('ja-JP');
+const updated = post.data.updated ? post.data.updated.toLocaleDateString('ja-JP') : null;
+const tags = post.data.tags || [];
+
+const related = (await getCollection('posts'))
+  .filter((p) => p.slug !== post.slug && !p.data.draft && !p.data.hidden)
+  .filter((p) => tags.length === 0 || p.data.tags.some((tag) => tags.includes(tag)))
+  .sort((a, b) => b.data.published.getTime() - a.data.published.getTime())
+  .slice(0, 3);
+---
+
+<BaseLayout
+  title={post.data.title}
+  description={post.data.description}
+  ogImage={post.data.hero}
+  pageType="post"
+  slug={post.slug}
+  published={post.data.published}
+  updated={post.data.updated}
+  tags={post.data.tags}
+>
+  <section class="content-section">
+    <h2 class="section-title">Post</h2>
+    <article class="post-shell">
+      {post.data.hero && <div class="post-hero" style={`background-image: url(${post.data.hero})`}></div>}
+      <div class="post-inner">
+        <div class="post-meta">
+          <span>🗓 {published}</span>
+        {updated && <span>更新 {updated}</span>}
+        {tags.length > 0 && (
+          <div class="tags">
+            {tags.map((tag) => (
+              <a class="tag-pill" href={`/tags/${tag}/`}>#{tag}</a>
+            ))}
+          </div>
+        )}
+        <span class="muted" data-view-count>閲覧数: --</span>
+      </div>
+        <h1 class="post-title">{post.data.title}</h1>
+        <p class="post-description">{post.data.description}</p>
+        <div class="prose">
+          <Content />
+        </div>
+      </div>
+    </article>
+  </section>
+
+  {related.length > 0 && (
+    <section class="content-section">
+      <h2 class="section-title">Related</h2>
+      <div class="grid-wrapper">
+        {related.map((rel) => (
+          <PostCard post={rel} />
+        ))}
+      </div>
+    </section>
+  )}
+</BaseLayout>

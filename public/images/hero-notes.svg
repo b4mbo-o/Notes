@@ -1,0 +1,27 @@
+<svg width="1400" height="640" viewBox="0 0 1400 640" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Bamboo inspired gradient">
+  <defs>
+    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0a0f0a" />
+      <stop offset="50%" stop-color="#123018" />
+      <stop offset="100%" stop-color="#0a0f0a" />
+    </linearGradient>
+    <linearGradient id="beam" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7abf75" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#7abf75" stop-opacity="0.5" />
+    </linearGradient>
+  </defs>
+  <rect width="1400" height="640" fill="url(#grad)" />
+  <g opacity="0.8">
+    <rect x="80" y="-40" width="28" height="720" rx="8" fill="url(#beam)" />
+    <rect x="240" y="-40" width="18" height="720" rx="6" fill="url(#beam)" />
+    <rect x="420" y="-40" width="24" height="720" rx="7" fill="url(#beam)" />
+    <rect x="620" y="-40" width="20" height="720" rx="7" fill="url(#beam)" />
+    <rect x="840" y="-40" width="26" height="720" rx="8" fill="url(#beam)" />
+    <rect x="1040" y="-40" width="16" height="720" rx="5" fill="url(#beam)" />
+    <rect x="1240" y="-40" width="24" height="720" rx="7" fill="url(#beam)" />
+  </g>
+  <g stroke="#7abf75" stroke-width="2" stroke-opacity="0.3">
+    <path d="M0 480 Q200 420 400 470 T800 440 T1200 490 T1400 470" fill="none" />
+    <path d="M0 560 Q220 520 440 560 T880 520 T1220 560 T1400 530" fill="none" />
+  </g>
+</svg>
