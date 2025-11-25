@@ -8,6 +8,8 @@ const posts = (await getCollection('posts'))
   .sort((a, b) => b.data.published.getTime() - a.data.published.getTime());
 
 const tags = Array.from(new Set(posts.flatMap((p) => p.data.tags || []))).sort((a, b) => a.localeCompare(b));
+const displayTags = tags.slice(0, 8);
+const remainingTags = tags.length - displayTags.length;
 ---
 
 <BaseLayout title="Notes" description="Blog & Notes">
@@ -28,9 +30,10 @@ const tags = Array.from(new Set(posts.flatMap((p) => p.data.tags || []))).sort((
     <section id="tags" class="content-section">
       <h2 class="section-title">01_Tags</h2>
       <div class="toc">
-        {tags.map((tag) => (
+        {displayTags.map((tag) => (
           <a class="tag-pill" href={`/tags/${tag}/`}>#{tag}</a>
         ))}
+        {remainingTags > 0 && <span class="muted">他 {remainingTags} 件</span>}
       </div>
     </section>
   )}

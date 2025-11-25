@@ -7,6 +7,8 @@ const dateLabel = post.data.published
   : '';
 const tags = post.data.tags || [];
 const href = `/posts/${post.slug}/`;
+const displayTags = tags.slice(0, 3);
+const remainingTags = tags.length - displayTags.length;
 ---
 
 <a class="card link-card note-card" href={href} data-slug={post.slug} data-date={post.data.published.getTime()}>
@@ -18,9 +20,10 @@ const href = `/posts/${post.slug}/`;
   <p class="service-desc">{post.data.description}</p>
   {tags.length > 0 && (
     <div class="tags">
-      {tags.map((tag) => (
+      {displayTags.map((tag) => (
         <span class="tag-pill">#{tag}</span>
       ))}
+      {remainingTags > 0 && <span class="tag-pill tag-more">他 {remainingTags} 件</span>}
     </div>
   )}
   <div class="card-footer">🗓 {dateLabel}</div>

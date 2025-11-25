@@ -356,10 +356,59 @@ body[data-theme='light'] .topbar {
   background: rgba(122, 191, 117, 0.26);
 }
 
+.tag-pill.tag-more {
+  border-style: dashed;
+  color: var(--muted);
+}
+
 .toc {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+}
+
+.call-line {
+  display: block;
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--panel-2);
+  margin-bottom: 6px;
+}
+
+.call-call {
+  border-left: 1px solid var(--border);
+  background-image: linear-gradient(
+    to bottom,
+    #ef9a57,
+    #ef6a6a,
+    #6bc7e8,
+    #6b8fe8,
+    #f18ecb,
+    #dfe4eb,
+    #f2d45c
+  );
+  background-repeat: no-repeat;
+  background-size: 6px 100%;
+  background-position: 0 0;
+  padding-left: 14px;
+}
+.call-white { border-left: 3px solid #dfe4eb; }
+.call-yellow { border-left: 3px solid #f2d45c; }
+.call-red { border-left: 3px solid #ef6a6a; }
+.call-pink { border-left: 3px solid #f18ecb; }
+.call-cyan { border-left: 3px solid #6bc7e8; }
+.call-orange { border-left: 3px solid #ef9a57; }
+.call-blue { border-left: 3px solid #6b8fe8; }
+
+.call-chant-line {
+  display: block;
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: 1px dashed var(--accent);
+  background: rgba(122, 191, 117, 0.14);
+  margin-bottom: 6px;
+  font-weight: 700;
 }
 
 .post-shell {
