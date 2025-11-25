@@ -411,6 +411,19 @@ body[data-theme='light'] .topbar {
   font-weight: 700;
 }
 
+.mix-heading {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  margin: 6px 0 8px;
+  border-radius: 999px;
+  border: 1px dashed var(--accent);
+  background: rgba(122, 191, 117, 0.12);
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
 .post-shell {
   border: 1px solid var(--border);
   border-radius: var(--radius);

@@ -36,7 +36,7 @@ hero: "https://i.ytimg.com/vi/F_QnGXjrxwM/maxresdefault.jpg"
 
 ## イントロ
 
-### ミョーホン広場→英語MIX
+<div class="mix-heading">MIX: ミョーホン広場→英語</div>
 <div class="call-chant-line">
 ミョーホントゥスケが始まるよ！<br>
 ミョーホントゥスケ！化繊飛除去！ジャージャーファイボワイパー！<br>
@@ -72,7 +72,7 @@ hero: "https://i.ytimg.com/vi/F_QnGXjrxwM/maxresdefault.jpg"
 <div class="call-line call-red">床が抜けようが関係ねえ！</div>
 <div class="call-line call-orange">叫べ 叫べ騒げ宴 汗の分だけブースト</div>
 
-### 日本語MIX
+<div class="mix-heading">MIX: 日本語</div>
 
 <div class="call-chant-line">
 虎虎虎虎！虎虎虎虎！虎火！人造！繊維！海女！振動！化繊！飛！除去！
@@ -98,7 +98,7 @@ hero: "https://i.ytimg.com/vi/F_QnGXjrxwM/maxresdefault.jpg"
 <div class="call-line call-red">ダークマターだって大歓迎</div>
 <div class="call-line call-red">全部全部笑わせたい</div>
 
-### アイヌ日可変
+<div class="mix-heading">MIX: アイヌ日可変</div>
 
 <div class="call-chant-line">
 ウィスペケスィ！チャペチャペチャペ！チャペアペカラキナカラアペチャペ！除去飛除去！虎虎虎！虎火人造繊維海女振動化繊！
@@ -110,7 +110,7 @@ hero: "https://i.ytimg.com/vi/F_QnGXjrxwM/maxresdefault.jpg"
 <div class="call-chant-line">（ウオッウオッオーイェー！ウオッウオッオーイェー！）</div>
 <div class="call-line call-pink">準備はOK？</div>
 
-### ワールドのかちゃん
+<div class="mix-heading">MIX: ワールドのかちゃん</div>
 
 <div class="call-chant-line">
 （ワ！ワ！ワ！ワ！ワ！ワ！ワールドのかちゃん！のーかちゃん！のーかちゃん！のーかちゃん！のーかちゃん！）
@@ -152,8 +152,7 @@ hero: "https://i.ytimg.com/vi/F_QnGXjrxwM/maxresdefault.jpg"
 
 ## アウトロ
 
-### スペイン語ショート  
-
+<div class="mix-heading">MIX: スペイン語ショート</div>
 <div class="call-chant-line">
 バーモー バーモー バーモー バーモース！<br>  
 ティグレ！フェゴ！シベル！フィブラ！<br>  
