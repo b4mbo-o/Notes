@@ -2,7 +2,7 @@
 title: "記事タイトル"
 description: "一覧に出す短い説明（全角80文字程度まで推奨）"
 published: "2025-01-01"
-tags: ["tag1", "tag2"]
+tags: ["startup", "statup"]
 hero: "/images/hero-notes.svg"
 hidden: true
 ---
