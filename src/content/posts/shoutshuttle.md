@@ -40,7 +40,7 @@ hero: "https://i.ytimg.com/vi/F_QnGXjrxwM/maxresdefault.jpg"
 <div class="call-chant-line">
 ミョーホントゥスケが始まるよ！<br>
 ミョーホントゥスケ！化繊飛除去！ジャージャーファイボワイパー！<br>
-っしゃー！行くぞ！タイガーファイヤー！  <br>
+👏　👏👏　👏　👏っしゃー！行くぞ！タイガーファイヤー！<br>
 サイバー！ファイバー！ダイバー！バイバー！ジャージャー！ファイボ👏ワイパー！
 </div>
 
@@ -66,8 +66,8 @@ hero: "https://i.ytimg.com/vi/F_QnGXjrxwM/maxresdefault.jpg"
 ## サビ1
 
 <div class="call-line call-call">シャウト・シャトル 最速でブッパ 大気圏を置き去りで</div>
-<div class="call-chant-line">（👏👏アイアイアイアイ！もう一回！アイアイアイアイ！アイアイアイアイ！）</div>
 <div class="call-line call-cyan">君とならいけるでしょ狙ってけハイヤー</div>
+<div class="call-chant-line">（👏👏アイアイアイアイ！もう一回！アイアイアイアイ！アイアイアイアイ！）</div>
 <div class="call-line call-call">シャウト・シャトルロケットスタート 想いの燃料 満タン</div>
 <div class="call-line call-red">床が抜けようが関係ねえ！</div>
 <div class="call-line call-orange">叫べ 叫べ騒げ宴 汗の分だけブースト</div>
@@ -92,8 +92,8 @@ hero: "https://i.ytimg.com/vi/F_QnGXjrxwM/maxresdefault.jpg"
 ## サビ2
 
 <div class="call-line call-call">ラウド・マイク つん裂いて地球 悩みをかき消していく</div>
-<div class="call-chant-line">（👏👏アイアイアイアイ！もう一回！アイアイアイアイ！アイアイアイアイ！）</div>
 <div class="call-line call-cyan">声なんてデカけりゃデカいほどハイプアップ</div>
+<div class="call-chant-line">（👏👏アイアイアイアイ！もう一回！アイアイアイアイ！アイアイアイアイ！）</div>
 <div class="call-line call-call">ラウド・マイク これがプライド 太陽よりもブライト</div>
 <div class="call-line call-red">ダークマターだって大歓迎</div>
 <div class="call-line call-red">全部全部笑わせたい</div>
@@ -107,7 +107,7 @@ hero: "https://i.ytimg.com/vi/F_QnGXjrxwM/maxresdefault.jpg"
 ## Cメロ
 
 <div class="call-line call-yellow">起こせビッグバン 何度でも 常に最新を生み出せ</div>
-<div class="call-chant-line">（ウオッウオッオーイェー！ウオッウオッオーイェー！）</div>
+<div class="call-chant-line">ウオッウオッオーイェー！ウオッウオッオーイェー！</div>
 <div class="call-line call-pink">準備はOK？</div>
 
 <div class="mix-heading">MIX: ワールドのかちゃん</div>
