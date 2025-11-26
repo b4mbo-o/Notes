@@ -1,6 +1,6 @@
 ---
 title: "『シャウト・シャトル』 コール表"
-description: "MEGAFON 『シャウト・シャトル』 のコール用早見サイトです。"
+description: "MEGAFON 『シャウト・シャトル』 のコール用まとめ。"
 published: "2025-11-26"
 tags: ["MEGAFON", "シャウトシャトル", "コール表","ミョーホントゥスケ広場","英語MIX","日本語MIX","アイヌ日可変","ワールド〇〇","スペイン語MIX"]
 hero: "https://i.ytimg.com/vi/F_QnGXjrxwM/maxresdefault.jpg"
