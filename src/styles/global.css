@@ -424,6 +424,30 @@ body[data-theme='light'] .topbar {
   letter-spacing: 0.02em;
 }
 
+.call-chip,
+.chip-call {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px 6px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+.chip-white { background: #dfe4eb; color: #1a1a1a; }
+.chip-yellow { background: #f2d45c; color: #3a2b00; }
+.chip-red { background: #ef6a6a; }
+.chip-pink { background: #f18ecb; color: #3a1a2a; }
+.chip-cyan { background: #6bc7e8; color: #0f2b36; }
+.chip-orange { background: #ef9a57; color: #2f1b08; }
+.chip-blue { background: #6b8fe8; }
+.chip-rainbow {
+  background: linear-gradient(90deg, #ef9a57, #ef6a6a, #f18ecb, #6b8fe8, #6bc7e8, #f2d45c, #dfe4eb);
+  color: #102013;
+}
+
 .post-shell {
   border: 1px solid var(--border);
   border-radius: var(--radius);
