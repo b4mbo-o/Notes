@@ -3,7 +3,7 @@ title: "『ほしがりんちゅ』 歌割りメモ"
 description: "MEGAFON『ほしがりんちゅ』のコール用まとめ。"
 published: "2025-11-26"
 tags: ["MEGAFON", "ほしがりんちゅ", "コール表", "萌え萌えキュン"]
-hero: "/images/hero-notes.svg"
+hero: "https://i.ytimg.com/vi/4GyAgpH08vM/sddefault.jpg"
 ---
 
 ## 色分け
@@ -17,9 +17,20 @@ hero: "/images/hero-notes.svg"
 - 青 = いろは
 - 緑点線枠 = 合いの手 / コール
 
-※ 『（　）』は合いの手。コールは未設定、歌割りのみ。
+※ 『（　）』は歌詞と被って打つときにつけています。
 
+## MV (YouTube)
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; border: 1px solid var(--border);">
+  <iframe
+    src="https://www.youtube.com/embed/4GyAgpH08vM?list=RD4GyAgpH08vM" 
+    title="【ライブMV】ほしがりんちゅ/ MEGAFON"
+    allowfullscreen
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
+  ></iframe>
+</div>
+<br>
 ---
+
 
 ## サビ1
 
