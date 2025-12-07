@@ -120,7 +120,7 @@ hero: "https://pbs.twimg.com/media/GrdoK8DbQAArVFv.jpg"
 ねるねるねるねるねるねるねるねる<br>
 ねるねるねるねるねーるーねー<br>
 ねればねるほど色が変わって<br>
-👏うまい　テーレッテレー</div>
+👏うまい</div>
 
 ## ラストサビ
 <div class="call-line call-cyan">君がいて声がある 測定不能なほどデカい想い</div>
