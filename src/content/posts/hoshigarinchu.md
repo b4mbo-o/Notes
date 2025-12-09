@@ -1,7 +1,7 @@
 ---
 title: "『ほしがりんちゅ』 コール表"
 description: "MEGAFON『ほしがりんちゅ』のコール用まとめ。"
-published: "2025-11-26"
+published: "2025-11-27"
 tags: ["MEGAFON", "ほしがりんちゅ", "コール表", "萌え萌えキュン"]
 hero: "https://i.ytimg.com/vi/4GyAgpH08vM/sddefault.jpg"
 ---
@@ -29,6 +29,7 @@ hero: "https://i.ytimg.com/vi/4GyAgpH08vM/sddefault.jpg"
   ></iframe>
 </div>
 <br>
+
 ---
 
 
