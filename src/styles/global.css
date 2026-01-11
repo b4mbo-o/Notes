@@ -514,13 +514,30 @@ body[data-theme='light'] .topbar {
   color: var(--text);
 }
 
-.prose blockquote {
+.prose blockquote:not(.twitter-tweet) {
   margin: 0 0 18px;
   padding: 16px 16px;
   border-left: 3px solid var(--accent);
   border-radius: 10px;
   background: rgba(122, 193, 122, 0.1);
   color: var(--text);
+}
+
+.prose .twitter-tweet {
+  margin: 0 auto 18px !important;
+  padding: 0 !important;
+  border: none !important;
+  background: transparent !important;
+  max-width: 100% !important;
+}
+
+.prose twitter-widget {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.prose twitter-widget iframe {
+  width: 100% !important;
 }
 
 .prose code {

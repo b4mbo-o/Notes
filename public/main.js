@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initSort();
   initViewCount();
   initNav();
+  initTwitterEmbeds();
 });
 
 function initTheme() {
@@ -214,6 +215,34 @@ function initViewCount() {
   localStorage.setItem('view-counts', JSON.stringify(counts));
   const label = document.querySelector('[data-view-count]');
   if (label) label.textContent = `閲覧数: ${counts[slug]}`;
+}
+
+function initTwitterEmbeds() {
+  const tweets = document.querySelectorAll('.twitter-tweet');
+  if (!tweets.length) return;
+
+  const loadWidgets = () => {
+    if (window.twttr?.widgets) window.twttr.widgets.load();
+  };
+
+  if (window.twttr?.widgets) {
+    loadWidgets();
+    return;
+  }
+
+  const existing = document.getElementById('twitter-wjs');
+  if (existing) {
+    existing.addEventListener('load', loadWidgets, { once: true });
+    return;
+  }
+
+  const script = document.createElement('script');
+  script.id = 'twitter-wjs';
+  script.async = true;
+  script.src = 'https://platform.twitter.com/widgets.js';
+  script.charset = 'utf-8';
+  script.onload = loadWidgets;
+  document.body.appendChild(script);
 }
 
 function getViewCounts() {
